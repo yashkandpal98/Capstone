@@ -1,0 +1,25 @@
+﻿@model Capstone.View_Models.ManageDeclarationsViewModel
+@{
+    ViewBag.Title = "ManageDeclarations";
+    Layout = "~/Views/Shared/_Layout-Manager.cshtml";
+}
+
+<h2>Manage Declarations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@Html.ActionLink(employee.Name, "ApproveOrReject", "Manager", new { id = employee.EmployeeId }, null)</td>
+            </tr>
+               }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model Capstone.View_Models.ViewDeclarationsViewModel
+@{
+    ViewBag.Title = "ViewDeclarations";
+    Layout = "~/Views/Shared/_Layout-Employee.cshtml";
+}
+
+<h2>View Declarations for @Model.Employee.Name</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Amount</th>
+            <th>Date Incurred</th>
+            <th>Date Submitted</th>
+            <th>Expense Type</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expense in Model.Expenses)
+        {
+        <tr>
+            <td>@expense.EmployeeId</td>
+            <td>@expense.ExpenseAmount</td>
+            <td>@expense.DateIncurred</td>
+            <td>@expense.DateSubmitted</td>
+            <td>@expense.ExpenseType.Type</td>
+            <td>@expense.Status.StatusType</td>
+        </tr>
+        }
+    </tbody>
+</table>
