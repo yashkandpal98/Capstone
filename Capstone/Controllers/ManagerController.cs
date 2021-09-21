@@ -79,10 +79,9 @@ namespace Capstone.Controllers
             return View(viewExpenses);
         }
 
-        [HttpPost]
-        public ActionResult Approve(Expense expense)
+        public ActionResult Approve(int id)
         {
-            var expenseInDB = _context.Expenses.Single(c => c.ExpenseId == expense.ExpenseId);
+            var expenseInDB = _context.Expenses.Single(c => c.ExpenseId == id);
 
             expenseInDB.StatusId = 2;
 
@@ -91,10 +90,9 @@ namespace Capstone.Controllers
             return RedirectToAction("ManageDeclarations", "Manager");
         }
 
-        [HttpPost]
-        public ActionResult Reject(Expense expense)
+        public ActionResult Reject(int id)
         {
-            var expenseInDB = _context.Expenses.Single(c => c.ExpenseId == expense.ExpenseId);
+            var expenseInDB = _context.Expenses.SingleOrDefault(c => c.ExpenseId == id);
 
             expenseInDB.StatusId = 3;
 

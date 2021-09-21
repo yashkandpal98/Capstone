@@ -30,7 +30,7 @@
                 <td>@expense.Status.StatusType</td>
                 @if(expense.Status.StatusType == "Pending")
                 { 
-                    <td>@Html.ActionLink("Approve", "Approve", "Manager", new { id = expense }, null) | @Html.ActionLink("Reject", "Index", "Manager", new { id = 3 }, null)</td>
+                    <td>@Html.ActionLink("Approve", "Approve", "Manager", new { id = expense.ExpenseId }, null) | @Html.ActionLink("Reject", "Reject", "Manager", new { id = expense.ExpenseId }, null)</td>
                 }
             </tr>
         }

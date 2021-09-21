@@ -55,7 +55,7 @@ namespace Capstone.Controllers
         [HttpPost]
         public ActionResult Save(Expense expense)
         {
-            if(!ModelState.IsValid)
+            /*if(!ModelState.IsValid)
             {
                 var viewModel = new NewDeclarationViewModel
                 {
@@ -66,7 +66,7 @@ namespace Capstone.Controllers
                 };
 
                 return View("NewDeclaration", viewModel);
-            }
+            }*/
 
             expense.DateSubmitted = DateTime.Now;
 
